@@ -1,17 +1,9 @@
 
-const apiKey = "dda25a0db9msh23c2be3cd3778d6p17ea31jsn742136c66ecf";
-const apiHost = "exercisedb.p.rapidapi.com";
-const apiUrl = "https://exercisedb.p.rapidapi.com/exercises";
+const apiUrl = "/api/exercises";
 
 // Function to fetch exercise data from API
 async function fetchExercises() {
-  const response = await fetch(apiUrl, {
-    method: "GET",
-    headers: {
-      "X-RapidAPI-Key": "dda25a0db9msh23c2be3cd3778d6p17ea31jsn742136c66ecf",
-      "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
-    },
-  });
+  const response = await fetch(apiUrl);
 
   if (response.ok) {
     const data = await response.json();
@@ -282,11 +274,7 @@ function displayPage(pageNumber) {
 // Update the fetchExerciseData function
 function fetchExerciseData() {
   // Replace 'YOUR_API_KEY' with your actual RapidAPI key
-  fetch('https://exercisedb.p.rapidapi.com/exercises', {
-    headers: {
-      'X-RapidAPI-Key': 'dda25a0db9msh23c2be3cd3778d6p17ea31jsn742136c66ecf',
-    },
-  })
+  fetch('/api/exercises')
     .then((response) => response.json())
     .then((data) => {
       exerciseDB = data; // Store the fetched exercise data in the exerciseDB array
